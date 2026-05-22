@@ -101,7 +101,7 @@
             border-radius: 16px;
             margin-bottom: 15px;
             transition: all 0.2s ease;
-            border: 1px solid ease;
+            border: 1px solid transparent; /* แก้ไขจากเดิมที่เป็น solid ease */
         }
 
         .info-item:hover {
@@ -142,17 +142,30 @@
             color: var(--dark-color);
         }
 
-        /* แถบสีที่ชอบด้านล่าง */
-        .color-badge {
+        /* แถบวิชาที่ชอบ / แถบสีที่ชอบ */
+        .color-badge, .subject-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: #6C5CE7;
             color: white;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 400;
+        }
+
+        .subject-badge {
+            background: var(--light-color);
+            color: var(--dark-color);
+            border: 1px solid #e1e4e8;
+            margin-right: 5px;
+            margin-top: 4px;
+        }
+
+        .subject-badge i {
+            color: var(--primary-color);
+            font-size: 0.85rem;
         }
 
         .color-dot {
@@ -216,6 +229,23 @@
                             <span class="color-dot"></span>สีม่วง
                         </span>
                     </p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="info-details">
+                    <span>วิชาที่ชอบ</span>
+                    <div>
+                        <span class="subject-badge">
+                            <i class="fa-solid fa-language"></i> ภาษาอังกฤษ
+                        </span>
+                        <span class="subject-badge">
+                            <i class="fa-solid fa-calculator"></i> คณิตศาสตร์
+                        </span>
+                    </div>
                 </div>
             </div>
 
