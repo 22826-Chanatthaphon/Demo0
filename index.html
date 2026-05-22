@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติส่วนตัว | ชณัฐพล พรพนาธาร</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #6C5CE7; /* สีม่วงหลัก */
+            --secondary-color: #A29BFE; /* สีม่วงอ่อน */
+            --dark-color: #2D3436;
+            --light-color: #F9F9F9;
+            --bg-gradient: linear-gradient(135deg, #6C5CE7 0%, #a29bfe 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: var(--dark-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* การ์ดโปรไฟล์หลัก */
+        .profile-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.15);
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ส่วนหัวสีม่วง */
+        .profile-header {
+            background: var(--bg-gradient);
+            padding: 40px 20px;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+        }
+
+        /* วงกลมรูปภาพ/ไอคอนตัวแทน */
+        .avatar-container {
+            width: 110px;
+            height: 110px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 4px solid #ffffff;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .profile-header h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* ส่วนเนื้อหาข้อมูล */
+        .profile-body {
+            padding: 30px 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            background: var(--light-color);
+            padding: 15px 20px;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            transition: all 0.2s ease;
+            border: 1px solid ease;
+        }
+
+        .info-item:hover {
+            background: #fff;
+            border-color: var(--secondary-color);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.08);
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: rgba(108, 92, 231, 0.1);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .info-details {
+            flex-grow: 1;
+        }
+
+        .info-details span {
+            display: block;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 2px;
+        }
+
+        .info-details p {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        /* แถบสีที่ชอบด้านล่าง */
+        .color-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #6C5CE7;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* ส่วนท้าย */
+        .profile-footer {
+            text-align: center;
+            padding: 0 20px 25px;
+            font-size: 0.8rem;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="avatar-container">
+                <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+            <h1>ชณัฐพล พรพนาธาร</h1>
+            <p>เด็กชาย (Boy)</p>
+        </div>
+
+        <div class="profile-body">
+            
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fa-solid fa-cake-candles"></i>
+                </div>
+                <div class="info-details">
+                    <span>วันเกิด</span>
+                    <p>18 มิถุนายน 2554</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div class="info-details">
+                    <span>อาหารที่ชอบ</span>
+                    <p>ผัดไทย (Pad Thai)</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <div class="info-details">
+                    <span>สีที่ชอบ</span>
+                    <p>
+                        <span class="color-badge">
+                            <span class="color-dot"></span>สีม่วง
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="profile-footer">
+            <p>© My Personal Profile Page</p>
+        </div>
+    </div>
+
+</body>
+</html>
