@@ -3,267 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติส่วนตัว | ชณัฐพล พรพนาธาร</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Profile: ชณัฐพล พรพนาธาร</title>
+    <!-- นำเข้า Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- นำเข้า Tailwind CSS (ผ่าน CDN สำหรับใช้งานง่ายในไฟล์เดียว) -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --primary-color: #6C5CE7; /* สีม่วงหลัก */
-            --secondary-color: #A29BFE; /* สีม่วงอ่อน */
-            --dark-color: #2D3436;
-            --light-color: #F9F9F9;
-            --bg-gradient: linear-gradient(135deg, #6C5CE7 0%, #a29bfe 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Sarabun', sans-serif;
-        }
-
+        /* ตั้งค่า Font หลัก */
         body {
-            background-color: #f4f6f9;
-            color: var(--dark-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Prompt', sans-serif;
+            /* สีพื้นหลังแบบ Gradient โทนสีม่วงอ่อน (ธีม Olivia) */
+            background: linear-gradient(135deg, #f3e8ff 0%, #d8b4fe 100%);
             min-height: 100vh;
-            padding: 20px;
         }
 
-        /* การ์ดโปรไฟล์หลัก */
+        /* ตกแต่ง Card */
         .profile-card {
-            background: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.15);
-            width: 100%;
-            max-width: 450px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* ส่วนหัวสีม่วง */
-        .profile-header {
-            background: var(--bg-gradient);
-            padding: 40px 20px;
-            text-align: center;
-            color: #ffffff;
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(107, 33, 168, 0.1);
+            border-radius: 1.5rem;
             position: relative;
+            overflow: hidden;
+            /* ขอบบางๆ สีม่วง */
+            border: 1px solid #e9d5ff;
         }
 
-        /* วงกลมรูปภาพ/ไอคอนตัวแทน */
-        .avatar-container {
-            width: 110px;
-            height: 110px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 4px solid #ffffff;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3rem;
-            color: #ffffff;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        /* ของตกแต่ง (รูปดาว สไตล์ Y2K/Olivia) */
+        .decoration-star {
+            position: absolute;
+            color: #a855f7;
+            opacity: 0.2;
+            z-index: 0;
+            pointer-events: none; /* ไม่ให้รบกวนการคลิก */
+        }
+        .star-1 { top: -20px; right: -20px; font-size: 150px; }
+        .star-2 { bottom: 50px; left: -30px; font-size: 100px; }
+        
+        /* สติกเกอร์ (จำลอง) */
+        .sticker {
+            position: absolute;
+            z-index: 10;
+            filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07));
+            transform: rotate(-15deg);
         }
 
-        .profile-header h1 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            letter-spacing: 0.5px;
+        /* สำหรับการพิมพ์ (A4) */
+        @media print {
+            body {
+                background: white; /* ไม่เอาพื้นหลังตอนพิมพ์ */
+            }
+            .profile-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+            .print-hidden {
+                display: none;
+            }
         }
 
-        .profile-header p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* ส่วนเนื้อหาข้อมูล */
-        .profile-body {
-            padding: 30px 25px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            background: var(--light-color);
-            padding: 15px 20px;
-            border-radius: 16px;
-            margin-bottom: 15px;
-            transition: all 0.2s ease;
-            border: 1px solid transparent; /* แก้ไขจากเดิมที่เป็น solid ease */
-        }
-
-        .info-item:hover {
-            background: #fff;
-            border-color: var(--secondary-color);
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.08);
-        }
-
-        .info-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            background: rgba(108, 92, 231, 0.1);
-            color: var(--primary-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        .info-details {
-            flex-grow: 1;
-        }
-
-        .info-details span {
-            display: block;
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 2px;
-        }
-
-        .info-details p {
-            font-size: 1.05rem;
+        /* รูปแบบ Pill/Tag */
+        .skill-tag {
+            background-color: #f3e8ff; /* ม่วงอ่อน */
+            color: #7e22ce; /* ม่วงเข้ม */
+            border: 1px solid #d8b4fe;
+            border-radius: 9999px; /* วงรี */
+            padding: 0.25rem 1rem;
+            font-size: 0.875rem;
             font-weight: 600;
-            color: var(--dark-color);
-        }
-
-        /* แถบวิชาที่ชอบ / แถบสีที่ชอบ */
-        .color-badge, .subject-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #6C5CE7;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 400;
-        }
-
-        .subject-badge {
-            background: var(--light-color);
-            color: var(--dark-color);
-            border: 1px solid #e1e4e8;
-            margin-right: 5px;
-            margin-top: 4px;
-        }
-
-        .subject-badge i {
-            color: var(--primary-color);
-            font-size: 0.85rem;
-        }
-
-        .color-dot {
-            width: 12px;
-            height: 12px;
-            background: #fff;
-            border-radius: 50%;
             display: inline-block;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            background-color: #d8b4fe;
+            color: #581c87;
         }
 
-        /* ส่วนท้าย */
-        .profile-footer {
-            text-align: center;
-            padding: 0 20px 25px;
-            font-size: 0.8rem;
-            color: #bbb;
+        /* รูปแบบ Quote */
+        .quote-box {
+            background: linear-gradient(to right, #faf5ff, #f3e8ff);
+            border-left: 4px solid #a855f7;
         }
     </style>
 </head>
-<body>
+<body class="flex items-center justify-center p-4 py-10 md:py-16 text-gray-800">
 
-    <div class="profile-card">
-        <div class="profile-header">
-            <div class="avatar-container">
-                <i class="fa-solid fa-user-astronaut"></i>
+    <!-- ปุ่ม Print (ซ่อนตอนพิมพ์) -->
+    <div class="fixed top-4 right-4 z-50 print-hidden">
+        <button onclick="window.print()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-colors flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clip-rule="evenodd" />
+            </svg>
+            พิมพ์ (A4)
+        </button>
+    </div>
+
+    <!-- Main Card Container (A4 Proportions approx) -->
+    <div class="profile-card w-full max-w-4xl p-8 md:p-12 z-10 relative">
+        
+        <!-- Background Decorations (Y2K / GUTS Theme elements) -->
+        <div class="decoration-star star-1">★</div>
+        <div class="decoration-star star-2">✸</div>
+
+        <!-- 🦋 Sticker Decoration (Olivia Vibe) -->
+        <div class="sticker top-10 left-10 text-4xl hidden md:block">🦋</div>
+        <div class="sticker top-20 right-20 text-3xl hidden md:block" style="transform: rotate(20deg);">💜</div>
+        <div class="sticker bottom-20 right-10 text-4xl hidden md:block" style="transform: rotate(-10deg);">🎸</div>
+
+
+        <!-- Header Section -->
+        <div class="flex flex-col md:flex-row items-center gap-8 mb-10 border-b border-purple-100 pb-8 relative z-10">
+            <!-- Avatar Placeholder (วงกลม) -->
+            <div class="w-40 h-40 rounded-full bg-purple-200 border-4 border-purple-400 flex items-center justify-center text-purple-500 shadow-md shrink-0 overflow-hidden relative group">
+                <!-- ใส่รูปภาพของคุณที่นี่ -->
+                <span class="text-5xl font-bold group-hover:scale-110 transition-transform">หมู</span>
+                <!-- รูปดาวเล็กๆ บนรูป -->
+                <div class="absolute top-2 right-2 text-white drop-shadow-md">✨</div>
             </div>
-            <h1>ชณัฐพล พรพนาธาร</h1>
-            <p>เด็กชาย (Boy)</p>
+
+            <div class="text-center md:text-left">
+                <h1 class="text-4xl md:text-5xl font-bold text-purple-900 mb-2">ชณัฐพล พรพนาธาร</h1>
+                <p class="text-xl text-purple-600 font-semibold mb-4">"หมู"</p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-2">
+                    <span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded">ม.3/2</span>
+                    <span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded">โรงเรียนจอมทอง</span>
+                </div>
+            </div>
         </div>
 
-        <div class="profile-body">
-            
-            <div class="info-item">
-                <div class="info-icon">
-                    <i class="fa-solid fa-cake-candles"></i>
-                </div>
-                <div class="info-details">
-                    <span>วันเกิด</span>
-                    <p>18 มิถุนายน 2554</p>
-                </div>
+        <!-- คติประจำใจ (Quote) -->
+        <div class="quote-box p-6 rounded-xl mb-10 text-center md:text-left relative z-10">
+            <svg class="w-8 h-8 text-purple-400 mb-2 mx-auto md:mx-0 opacity-50" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            <p class="text-lg md:text-xl italic text-purple-800 font-medium leading-relaxed">
+                จงมีความสุขกับการเป็นตัวคุณ รักในความไม่สมบูรณ์แบบ และยอมรับในความแปลกของตัวเอง
+            </p>
+        </div>
+
+        <!-- Grid Layout for Info Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+
+            <!-- Section 1: ข้อมูลส่วนตัว (Personal Info) -->
+            <div>
+                <h2 class="text-2xl font-bold text-purple-800 mb-4 flex items-center gap-2 border-b-2 border-purple-200 pb-2 inline-flex">
+                    <span class="text-purple-500">📝</span> ข้อมูลส่วนตัว
+                </h2>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-28 shrink-0">วันเกิด:</span>
+                        <span>18 มิถุนายน 2554 (ราศีเมถุน)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-28 shrink-0">เพศ:</span>
+                        <span>ชาย</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-28 shrink-0">กรุ๊ปเลือด:</span>
+                        <span>O</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-28 shrink-0">ส่วนสูง:</span>
+                        <span>175 ซม.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-28 shrink-0">ภูมิลำเนา:</span>
+                        <span>เชียงใหม่</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-28 shrink-0">เพื่อนสนิท:</span>
+                        <span>น้องออม</span>
+                    </li>
+                </ul>
             </div>
 
-            <div class="info-item">
-                <div class="info-icon">
-                    <i class="fa-solid fa-utensils"></i>
-                </div>
-                <div class="info-details">
-                    <span>อาหารที่ชอบ</span>
-                    <p>ผัดไทย (Pad Thai)</p>
-                </div>
+            <!-- Section 2: ความชอบและกิจกรรม (Interests & Activities) -->
+            <div>
+                <h2 class="text-2xl font-bold text-purple-800 mb-4 flex items-center gap-2 border-b-2 border-purple-200 pb-2 inline-flex">
+                    <span class="text-purple-500">🎧</span> ความชอบและกิจกรรม
+                </h2>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-32 shrink-0">วิชาที่ชอบ:</span>
+                        <span class="text-green-600 font-medium">ภาษาอังกฤษ 🇬🇧</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-32 shrink-0">วิชาที่ยาก:</span>
+                        <span class="text-red-500 font-medium">ลูกเสือ ⚜️</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-32 shrink-0">ชมรม/กิจกรรม:</span>
+                        <span>สวนพฤกษศาสตร์ 🌿</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-32 shrink-0">ความฝัน/อาชีพ:</span>
+                        <span class="font-bold text-purple-900">โมเดล 📸</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-32 shrink-0">อาหารโปรด:</span>
+                        <span>ผัดไทย 🍝</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-purple-700 w-32 shrink-0">สีโปรด:</span>
+                        <span class="text-purple-600 font-bold">สีม่วง 💜</span>
+                    </li>
+                </ul>
             </div>
 
-            <div class="info-item">
-                <div class="info-icon">
-                    <i class="fa-solid fa-palette"></i>
-                </div>
-                <div class="info-details">
-                    <span>สีที่ชอบ</span>
-                    <p>
-                        <span class="color-badge">
-                            <span class="color-dot"></span>สีม่วง
-                        </span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="info-item">
-                <div class="info-icon">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-                <div class="info-details">
-                    <span>วิชาที่ชอบ</span>
+            <!-- Section 3: ไลฟ์สไตล์และบันเทิง (Lifestyle & Entertainment) -->
+            <div class="md:col-span-2 mt-4">
+                <h2 class="text-2xl font-bold text-purple-800 mb-4 flex items-center gap-2 border-b-2 border-purple-200 pb-2 inline-flex">
+                    <span class="text-purple-500">✨</span> ไลฟ์สไตล์ & ทักษะ
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <span class="subject-badge">
-                            <i class="fa-solid fa-language"></i> ภาษาอังกฤษ
-                        </span>
-                        <span class="subject-badge">
-                            <i class="fa-solid fa-calculator"></i> คณิตศาสตร์
-                        </span>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="font-semibold text-purple-700 w-32 shrink-0">กีฬา:</span>
+                                <span>แบดมินตัน 🏸</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="font-semibold text-purple-700 w-32 shrink-0">งานอดิเรก:</span>
+                                <span>งานอดิเรกต่างๆ</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="font-semibold text-purple-700 w-32 shrink-0">เพลงที่ชอบ:</span>
+                                <span>Pop 🎵</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="font-semibold text-purple-700 w-32 shrink-0">สิ่งที่ติดตาม:</span>
+                                <span class="italic font-medium">Hit Me Hard and Soft The Tour 🎫</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="info-item">
-                <div class="info-icon">
-                    <i class="fa-solid fa-user-group"></i>
+                <!-- ทักษะ (Skills as Pills) -->
+                <div class="mt-4">
+                    <h3 class="font-bold text-purple-800 mb-2">ทักษะความสามารถ:</h3>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">🏸 เล่นแบดมินตัน</span>
+                        <span class="skill-tag">🇬🇧 ภาษาอังกฤษ</span>
+                        <span class="skill-tag">📸 การโพสท่า (ความฝันโมเดล)</span>
+                        <span class="skill-tag">🌿 ความรู้สวนพฤกษศาสตร์</span>
+                    </div>
                 </div>
-                <div class="info-details">
-                    <span>เพื่อนสนิท</span>
-                    <p>แพม (Pam)</p>
-                </div>
-            </div>
 
+            </div>
         </div>
 
-        <div class="profile-footer">
-            <p>© My Personal Profile Page</p>
+        <!-- Footer -->
+        <div class="mt-12 text-center text-sm text-purple-400 border-t border-purple-100 pt-6 relative z-10">
+            Profile created for Student ID Card Project • 2026
         </div>
+
     </div>
 
 </body>
