@@ -1,12 +1,9 @@
-<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile: ชณัฐพล พรพนาธาร</title>
-    <!-- นำเข้า Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- นำเข้า Tailwind CSS (ผ่าน CDN สำหรับใช้งานง่ายในไฟล์เดียว) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* ตั้งค่า Font หลัก */
@@ -88,9 +85,7 @@
     </style>
 </head>
 <body class="flex items-center justify-center p-4 py-10 md:py-16 text-gray-800">
-    <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/1124F/production/_119932207_indifferentcatgettyimages.png.webp" alt="รูปเเมวน่ารัก">
 
-    <!-- ปุ่ม Print (ซ่อนตอนพิมพ์) -->
     <div class="fixed top-4 right-4 z-50 print-hidden">
         <button onclick="window.print()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-colors flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -100,27 +95,20 @@
         </button>
     </div>
 
-    <!-- Main Card Container (A4 Proportions approx) -->
     <div class="profile-card w-full max-w-4xl p-8 md:p-12 z-10 relative">
         
-        <!-- Background Decorations (Y2K / GUTS Theme elements) -->
         <div class="decoration-star star-1">★</div>
         <div class="decoration-star star-2">✸</div>
 
-        <!-- 🦋 Sticker Decoration (Olivia Vibe) -->
         <div class="sticker top-10 left-10 text-4xl hidden md:block">🦋</div>
         <div class="sticker top-20 right-20 text-3xl hidden md:block" style="transform: rotate(20deg);">💜</div>
         <div class="sticker bottom-20 right-10 text-4xl hidden md:block" style="transform: rotate(-10deg);">🎸</div>
 
 
-        <!-- Header Section -->
         <div class="flex flex-col md:flex-row items-center gap-8 mb-10 border-b border-purple-100 pb-8 relative z-10">
-            <!-- Avatar Placeholder (วงกลม) -->
             <div class="w-40 h-40 rounded-full bg-purple-200 border-4 border-purple-400 flex items-center justify-center text-purple-500 shadow-md shrink-0 overflow-hidden relative group">
-                <!-- ใส่รูปภาพของคุณที่นี่ -->
-                <span class="text-5xl font-bold group-hover:scale-110 transition-transform">หมู</span>
-                <!-- รูปดาวเล็กๆ บนรูป -->
-                <div class="absolute top-2 right-2 text-white drop-shadow-md">✨</div>
+                <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/1124F/production/_119932207_indifferentcatgettyimages.png.webp" alt="รูปเเมวน่ารัก" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                <div class="absolute top-2 right-2 text-white drop-shadow-md z-10">✨</div>
             </div>
 
             <div class="text-center md:text-left">
@@ -133,7 +121,6 @@
             </div>
         </div>
 
-        <!-- คติประจำใจ (Quote) -->
         <div class="quote-box p-6 rounded-xl mb-10 text-center md:text-left relative z-10">
             <svg class="w-8 h-8 text-purple-400 mb-2 mx-auto md:mx-0 opacity-50" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
             <p class="text-lg md:text-xl italic text-purple-800 font-medium leading-relaxed">
@@ -141,10 +128,8 @@
             </p>
         </div>
 
-        <!-- Grid Layout for Info Sections -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
 
-            <!-- Section 1: ข้อมูลส่วนตัว (Personal Info) -->
             <div>
                 <h2 class="text-2xl font-bold text-purple-800 mb-4 flex items-center gap-2 border-b-2 border-purple-200 pb-2 inline-flex">
                     <span class="text-purple-500">📝</span> ข้อมูลส่วนตัว
@@ -177,7 +162,6 @@
                 </ul>
             </div>
 
-            <!-- Section 2: ความชอบและกิจกรรม (Interests & Activities) -->
             <div>
                 <h2 class="text-2xl font-bold text-purple-800 mb-4 flex items-center gap-2 border-b-2 border-purple-200 pb-2 inline-flex">
                     <span class="text-purple-500">🎧</span> ความชอบและกิจกรรม
@@ -210,7 +194,6 @@
                 </ul>
             </div>
 
-            <!-- Section 3: ไลฟ์สไตล์และบันเทิง (Lifestyle & Entertainment) -->
             <div class="md:col-span-2 mt-4">
                 <h2 class="text-2xl font-bold text-purple-800 mb-4 flex items-center gap-2 border-b-2 border-purple-200 pb-2 inline-flex">
                     <span class="text-purple-500">✨</span> ไลฟ์สไตล์ & ทักษะ
@@ -243,7 +226,6 @@
                     </div>
                 </div>
 
-                <!-- ทักษะ (Skills as Pills) -->
                 <div class="mt-4">
                     <h3 class="font-bold text-purple-800 mb-2">ทักษะความสามารถ:</h3>
                     <div class="flex flex-wrap">
@@ -257,7 +239,6 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="mt-12 text-center text-sm text-purple-400 border-t border-purple-100 pt-6 relative z-10">
             Profile created for Student ID Card Project • 2026
         </div>
